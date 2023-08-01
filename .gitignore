@@ -1,2 +1,10 @@
 /.idea/
 /terget/
+/target/test-classes/BmiTest.class
+/target/test-classes/BrowserTest.class
+/target/test-classes/BrowserWindowsControl.class
+/target/test-classes/Calculator.class
+/target/test-classes/CalculatorTests.class
+/target/test-classes/MyFirstTest.class
+/target/test-classes/WebDriverManagerTest.class
+/target/test-classes/webStackOverflowTest.class

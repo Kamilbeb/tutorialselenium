@@ -23,6 +23,7 @@ public class BmiTest {
         driver.findElement(By.xpath("//input[@name='height']")).sendKeys("183");
         driver.findElement(By.tagName("button")).click();
         System.out.println(driver.findElement(By.className("result-value")).getText());
+        driver.quit();
 
     }
 }
