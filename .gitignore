@@ -1,14 +1,3 @@
 /.idea/
 /terget/
-/target/test-classes/BmiTest.class
-/target/test-classes/BrowserTest.class
-/target/test-classes/BrowserWindowsControl.class
-/target/test-classes/Calculator.class
-/target/test-classes/CalculatorTests.class
-/target/test-classes/MyFirstTest.class
-/target/test-classes/WebDriverManagerTest.class
-/target/test-classes/webStackOverflowTest.class
-/target/test-classes/CssSelectorsTest.class
-/target/test-classes/FacebookTest.class
-/target/test-classes/SelectorTest.class
-/target/test-classes/ShopSeleniumTest.class
+/target/
