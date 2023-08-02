@@ -44,7 +44,7 @@ public class BasicActionsTest {
         System.out.println(selectCheck.checkOption("Audi",selectCar));
 
         WebElement para = driver.findElement(By.cssSelector(".topSecret"));
-        System.out.println("By text: "+ para.getAttribute("textContent"));
+        System.out.println("By text: "+ para.getAttribute("textContent")); //pobieranie tekstu z ukrytego elementu
 
     }
 }
