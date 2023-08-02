@@ -20,13 +20,6 @@ public class RightMouseClickTest {
         driver.manage().window().maximize();
         int randomNumber = (int) (Math.random()*1000);
 
-        TakesScreenshot screenshot = (TakesScreenshot) driver; //castowanie drivera
-        File before = screenshot.getScreenshotAs(OutputType.FILE);
-        String fileName = "beforeUpload"+randomNumber+".png";
-
-        FileUtils.copyFile(before,new File("src/test/resources/"+fileName));
-
-        driver.findElement(By.id("myFile")).sendKeys("C:\\Users\\admin\\Documents\\sample.txt");
 
         Actions actions = new Actions(driver);
         //actions.contextClick().perform(); //kliknięcie PPM - czyli wyświetla się menu kontekstowe
