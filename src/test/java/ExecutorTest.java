@@ -13,5 +13,8 @@ public class ExecutorTest {
         WebElement basicPageLink = driver.findElement(By.linkText("Podstawowa strona testowa"));
         JavascriptExecutor executor = (JavascriptExecutor) driver; //stworzenie zmiennej executor typu JSE i skastowanie do drivera
         executor.executeScript("arguments[0].click();", basicPageLink); //wywołujemy metodę
+
+        WebElement firstName = driver.findElement(By.name("fname"));
+        executor.executeScript("arguments[0].setAttribute('value','Kamil');",firstName);
     }
 }
