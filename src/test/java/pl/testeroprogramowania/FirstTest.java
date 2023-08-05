@@ -9,11 +9,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.testng.Assert;
 import org.testng.annotations.Ignore;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.time.Duration;
 import java.util.List;
 
+@Listeners(value = {SampleTestListener.class})
 public class FirstTest extends BaseTest {
 
     WebDriver driver;
@@ -25,12 +28,18 @@ public class FirstTest extends BaseTest {
         driver.findElement(By.id("clickOnMe")).click();
         waitForElementToExist(By.cssSelector("p"));
 
-        String paraText = driver.findElement(By.cssSelector("p")).getText();
-        Assert.assertEquals(paraText,"Dopiero się pojawiłem!");
+        WebElement para = driver.findElement(By.cssSelector("p"));
+
+        Assert.assertEquals(para.isDisplayed(),true);
+        Assert.assertTrue(para.isDisplayed(),"Element is not displayed");  //czy tekst jest wyświetlany alternatywa do powyżej
+        Assert.assertTrue(para.getText().startsWith("Dopiero")); //czy tekst zaczyna się od Dopiero
+        Assert.assertFalse(para.getText().startsWith("Pojawiłem"));
+        Assert.assertEquals(para.getText(),"Dopiero się pojawiłem!");
+        Assert.assertEquals(para.getText(),"Dopiero","Teksty są różne");
         driver.quit();
 
         }
-    @Test
+    @Test @Ignore
     public void secondTest(){
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
@@ -38,9 +47,19 @@ public class FirstTest extends BaseTest {
         driver.findElement(By.id("clickOnMe")).click();
         waitForElementToExist(By.cssSelector("p"));
 
-        String paraText = driver.findElement(By.cssSelector("p")).getText();
-        Assert.assertEquals(paraText,"Dopiero się pojawiłem!");
+        WebElement para = driver.findElement(By.cssSelector("p"));
+
+        SoftAssert softAssert = new SoftAssert();
+
+        softAssert.assertEquals(para.isDisplayed(),true);
+        softAssert.assertTrue(para.isDisplayed(),"Element is not displayed");  //czy tekst jest wyświetlany alternatywa do powyżej
+        softAssert.assertTrue(para.getText().startsWith("Dopiero")); //czy tekst zaczyna się od Dopiero
+        softAssert.assertFalse(para.getText().startsWith("Pojawiłem"));
+        softAssert.assertEquals(para.getText(),"Dopiero się","druga asercja");
+        softAssert.assertEquals(para.getText(),"Dopiero","Teksty są różne");
+
         driver.quit();
+        softAssert.assertAll();
 
     }
         public void waitForElementToExist(By locator){
